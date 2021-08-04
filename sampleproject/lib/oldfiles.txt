@@ -1,0 +1,56 @@
+import 'package:flutter/material.dart';
+
+// void main() {
+//   runApp(MyApp());
+// }
+
+void main() => runApp(MyApp());
+//Using arrow function to make code cleaner
+
+class MyApp extends StatelessWidget {
+  var question_index = 0;
+
+  void answerQuestion() {
+    question_index = question_index + 1;
+    print(question_index);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var questions = [
+      'What is my name?',
+      'What is the color of my eyes?',
+    ];
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('My First App'),
+        ),
+        // body: Text('This is my default text!'),
+        body: Column(
+          children: [
+            // Text(questions.elementAt(0)),
+            Text(
+              questions[question_index],
+            ),
+            RaisedButton(
+              child: Text('Answer 1'),
+              onPressed: answerQuestion,
+            ),
+            RaisedButton(
+              child: Text('Answer 2'),
+              onPressed: () => print('Answer 2 Chosen!'),
+            ),
+            RaisedButton(
+              child: Text('Answer 3'),
+              onPressed: () {
+                // ...
+                print('Answer 3 Chosen!');
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
